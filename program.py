@@ -4,14 +4,6 @@ import time
 from textUtils import *
 from menu import *
 
-# Conectar ao banco
-try:
-    conexao = conectar()
-    cursor = conexao.cursor()
-except Exception as e:
-    print("Erro ao conectar ao banco de dados: ", e)
-os.system("cls")
-
 
 # Funções de Listagem
 # Listar Alunos

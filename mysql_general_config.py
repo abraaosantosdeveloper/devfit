@@ -14,13 +14,13 @@ porta = "3306"
 # só pra isso ou, no caso, usar o
 # usuário raiz do SGBD
 usuario = "root"
-senha =""
+senha ="abc@123"
 
 # o nome do esquema de banco de dados
 # que o sistema estará utilizando
 # aqui você deve preencher o nome
 # que você deu ao seu banco de dados.
-banco = "fittrack"
+banco = "devfit"
 
 def conectar():
     conexao = mysql.connector.connect(host=hostname,
