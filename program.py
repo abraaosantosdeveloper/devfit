@@ -1,6 +1,6 @@
 import os
-from mysql_general_config import *
 import time
+from mysql_general_config import *
 from textUtils import *
 from menu import *
 
