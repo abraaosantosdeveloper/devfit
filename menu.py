@@ -2,15 +2,10 @@ from textUtils import *
 import time
 def desenhar_menu():
     os.system('cls')
-    def progress_bar(done):
-        printBrightCyan("\rInicializando sistema: [{0:50s}] {1:.1f}%".format('#' * int(done * 50), done * 100), end='')
-            
-    def load():
-        for n in range(101):
-            progress_bar(n / 100)
-            time.sleep(0.02)
-            
-    load()
+    for n in range(101):
+        printProgressBar(n, 1, BRIGHT_GREEN, GREEN, WHITE, BACKGROUND_GREEN)
+        time.sleep(0.01)
+        
     time.sleep(1)
     os.system('cls')
     
@@ -90,10 +85,10 @@ def desenhar_menu():
     gotoxy(93,12)
     print("20 - Fornecedor")
 
-    drawRoundBorderBox(1, 15, 32, 3, color=RED)
-    gotoxy(3,16)
+    drawRoundBorderBox(1, 15, 30, 3, color=RED)
+    gotoxy(3, 16)
     printRed("Digite 0 para cancelar...")
 
     # Input
-    drawRoundBorderBox(1, 18, 32, 3, color=BRIGHT_CYAN)
-    gotoxy(3,19)
+    drawRoundBorderBox(31, 15, 34, 3, color=BRIGHT_CYAN)
+    gotoxy(33, 16)

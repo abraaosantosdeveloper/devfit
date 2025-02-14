@@ -17,8 +17,6 @@ BRIGHT_MAGENTA = '\033[95m'
 BRIGHT_CYAN = '\033[96m'
 WHITE = '\033[97m'
 
-# For bold texts
-
 BOLD_BLACK = '\033[1;30m'
 BOLD_RED = '\033[1;31m'
 BOLD_GREEN = '\033[1;32m'
@@ -35,6 +33,23 @@ BOLD_BRIGHT_BLUE = '\033[1;94m'
 BOLD_BRIGHT_MAGENTA = '\033[1;95m'
 BOLD_BRIGHT_CYAN = '\033[1;96m'
 BOLD_WHITE = '\033[1;97m'
+
+BACKGROUND_GRAY = '\033[40m'
+BACKGROUND_RED = '\033[41m'
+BACKGROUND_GREEN = '\033[42m'
+BACKGROUND_YELLOW = '\033[43m'
+BACKGROUND_BLUE = '\033[44m'
+BACKGROUND_MAGENTA = '\033[45m'
+BACKGROUND_CYAN = '\033[46m'
+BACKGROUND_LIGHT_GRAY = '\033[47m'
+BACKGROUND_DARK_GRAY = '\033[100m'
+BACKGROUND_BRIGHT_RED = '\033[101m'
+BACKGROUND_BRIGHT_GREEN = '\033[102m'
+BACKGROUND_BRIGHT_YELLOW = '\033[103m'
+BACKGROUND_BRIGHT_BLUE = '\033[104m'
+BACKGROUND_BRIGHT_MAGENTA = '\033[105m'
+BACKGROUND_BRIGHT_CYAN = '\033[106m'
+BACKGROUND_WHITE = '\033[107m'
 
 RESET = '\033[0m' # called to return to standard terminal text color
 
@@ -117,6 +132,35 @@ def printTitleBar(text:str, boxColor = WHITE, textColor = WHITE):
 	drawBox(1,1,120,3,boxColor)
 	gotoxy(x,2)
 	printColored(text, textColor)
+
+#prints a progress bar on the selected line
+#the bar shows the percentage value from 0% to 100%
+#it assumes the default 120 x 30 windows console
+def printProgressBar(percentage:float,
+	line:int= 27,
+	boxColor = WHITE,
+	barColor=GREEN,
+	textColor = WHITE,
+	backgroundTextColor = BACKGROUND_GREEN):
+
+	if line < 0: return
+	if line > 27: return
+	if percentage < 0: percentage = 0
+	if percentage > 100: percentage = 100
+	
+	drawBox(1,line,120,3,boxColor)
+	
+	pins = int((percentage / 100) * 118)
+	for i in range(pins):
+		gotoxy(i+2, line+1)
+		printColored("█", barColor)
+
+	text = f"{percentage:.2f}%"
+	for j in range(len(text)):
+		gotoxy(58+j,line+1)
+		if(pins < 58+j): printColored(text[j], textColor)
+		else: printColored(text[j], backgroundTextColor+textColor)
+
 
 # prints a dark gray status bar in the bottom of console with left aligned text...
 # suport only text color...
