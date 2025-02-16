@@ -89,7 +89,7 @@ def main():
         printProgressBar(n, 1, BRIGHT_GREEN, GREEN, WHITE, BACKGROUND_GREEN)
         time.sleep(0.01)
     time.sleep(1)
-
+    # Menu loop
     while True:
         desenhar_menu()
         opcao = input("Digite a opção desejada: ")
