@@ -14,7 +14,7 @@ porta = "3306"
 # só pra isso ou, no caso, usar o
 # usuário raiz do SGBD
 usuario = "root"
-senha ="abc@123"
+senha =""
 
 # o nome do esquema de banco de dados
 # que o sistema estará utilizando

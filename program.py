@@ -61,7 +61,7 @@ def cadastrar_aluno():
     endereco = input("Endereço: ")
     contato = input("Contato: ")
     turma = int(input("Turma: "))
-    plano = input("Plano(Mensal, trimestral ou semestral): ")
+    plano = int(input("Id do Plano: "))
 
     query = f"""INSERT INTO aluno(nome, cpf, nascimento, endereco, contato, turma, plano) VALUES('{nome}', '{cpf}', '{data_nasc}', '{endereco}', '{contato}', '{turma}', '{plano}')"""
 
@@ -72,6 +72,8 @@ def cadastrar_aluno():
         input("pressione enter para continuar...")
     except Exception as e:
         print("Erro ao cadastrar aluno: ", e)
+        input("pressione enter para continuar...")
+
 
 
 def cadastrar_equipamento():
@@ -82,8 +84,13 @@ def cadastrar_fornecedor():
 
 
 def main():
+    os.system('cls')
+    for n in range(101):
+        printProgressBar(n, 1, BRIGHT_GREEN, GREEN, WHITE, BACKGROUND_GREEN)
+        time.sleep(0.01)
+    time.sleep(1)
+
     while True:
-        os.system("cls")
         desenhar_menu()
         opcao = input("Digite a opção desejada: ")
         try:
@@ -99,25 +106,24 @@ def main():
                 os.system("cls")
                 listar_planos()
 
-            elif opcao == "6":
+            elif opcao == "7":
                 os.system("cls")
                 cadastrar_aluno()
 
             elif opcao == "0":
                 os.system("cls")
-            def progress_bar(done):
-                printBrightYellow("\rEncerrando sistema: [{0:50s}] {1:.1f}%".format('#' * int(done * 50), done * 100), end='')
+                
+                def closing():
+                    for n in range(101):
+                        printProgressBar(n, 1, RED, RED, WHITE, BACKGROUND_WHITE)
+                        time.sleep(0.01)
             
-            def closing():
-                for n in range(101):
-                    progress_bar(n / 100)
-                    time.sleep(0.01)
-            
-            closing()
-            time.sleep(1)
-            os.system('cls')
-            printBrightCyan("Obrigado por utilizar nosso sistema!")
-            break
+                closing()
+                time.sleep(1)
+                os.system('cls')
+                printBrightCyan("Obrigado por utilizar nosso sistema!")
+                break
+
         except Exception as e:
             print("Opção inválida! Tente novamente...", e)
             input("pressione enter para continuar...")

@@ -1,15 +1,7 @@
 from textUtils import *
-import time
 def desenhar_menu():
     os.system('cls')
-    for n in range(101):
-        printProgressBar(n, 1, BRIGHT_GREEN, GREEN, WHITE, BACKGROUND_GREEN)
-        time.sleep(0.01)
-        
-    time.sleep(1)
-    os.system('cls')
-    
-    
+       
     # Título do menu
     printTitleBar("⚽ MENU PRINCIPAL | DEVFIT 🥊", BRIGHT_CYAN, BOLD_BRIGHT_CYAN)
     
@@ -30,6 +22,8 @@ def desenhar_menu():
     print("4 - Equipamentos")
     gotoxy(3,12)
     print("5 - Fornecedores")
+    gotoxy(3,13)
+    print("6 - Turmas")
 
     # Caixa 2
     drawRoundBorderBox(31, 4, 30, 3, color=BRIGHT_GREEN)
@@ -39,15 +33,17 @@ def desenhar_menu():
     # Opções da caixa 2
     drawRoundBorderBox(31, 7, 30, 8)
     gotoxy(33,8)
-    print("6 - Aluno")
+    print("7 - Aluno")
     gotoxy(33,9)
-    print("7 - Funcionário")
+    print("8 - Funcionário")
     gotoxy(33,10)
-    print("8 - Plano")
+    print("9 - Plano")
     gotoxy(33,11)
-    print("9 - Equipamento")
+    print("10 - Equipamento")
     gotoxy(33,12)
-    print("10 - Fornecedor")
+    print("11 - Fornecedor")
+    gotoxy(33,13)
+    print("12 - Turma")
 
     # Caixa 3
     drawRoundBorderBox(61, 4, 30, 3, color=BRIGHT_BLUE)
@@ -66,6 +62,8 @@ def desenhar_menu():
     print("14 - Equipamento")
     gotoxy(63,12)
     print("15 - Fornecedor")
+    gotoxy(63,13)
+    print("16 - Turma")
     
     # Caixa 4
     drawRoundBorderBox(91, 4, 30, 3, color=RED)
@@ -84,6 +82,8 @@ def desenhar_menu():
     print("19 - Equipamento")
     gotoxy(93,12)
     print("20 - Fornecedor")
+    gotoxy(93,13)
+    print("21 - Turma")
 
     drawRoundBorderBox(1, 15, 30, 3, color=RED)
     gotoxy(3, 16)
