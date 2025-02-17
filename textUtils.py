@@ -1,5 +1,7 @@
 import os
 
+# Developed by Givanio Melo | Original repo: https://github.com/GivanioMelo/TextUtils
+
 BLACK = '\033[30m'
 RED = '\033[31m'
 GREEN = '\033[32m'
@@ -155,7 +157,7 @@ def printTitleBarHeavyBorder(text:str, boxColor = WHITE, textColor = WHITE):
 	drawBox(1,1,120,3,boxColor, HEAVY_BORDER_CHARSET)
 	gotoxy(x,2)
 	printColored(text, textColor)
-	
+
 #round border
 def printTitleBarRoundBorder(text:str, boxColor = WHITE, textColor = WHITE):
 	x = 60 - (int(len(text)/2))
