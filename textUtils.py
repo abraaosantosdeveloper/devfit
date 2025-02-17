@@ -127,11 +127,42 @@ def drawRoundBorderBox(x,y,w,h, color=WHITE): drawBox(x,y,w,h,color,ROUND_BORDER
 # prints a title bar on the top of console with centered text...
 # suport box color and text color
 # it assumes the default 120 x 30 windows console
+
+# simple border
 def printTitleBar(text:str, boxColor = WHITE, textColor = WHITE):
 	x = 60 - (int(len(text)/2))
 	drawBox(1,1,120,3,boxColor)
 	gotoxy(x,2)
 	printColored(text, textColor)
+
+# double border
+def printTitleBarDoubleBorder(text:str, boxColor = WHITE, textColor = WHITE):
+	x = 60 - (int(len(text)/2))
+	drawBox(1,1,120,3,boxColor, DOUBLE_BORDER_CHARSET)
+	gotoxy(x,2)
+	printColored(text, textColor)
+
+#broad border
+def printTitleBarBroadBorder(text:str, boxColor = WHITE, textColor = WHITE):
+	x = 60 - (int(len(text)/2))
+	drawBox(1,1,120,3,boxColor, BROAD_BORDER_CHARSET)
+	gotoxy(x,2)
+	printColored(text, textColor)
+
+#heavy border
+def printTitleBarHeavyBorder(text:str, boxColor = WHITE, textColor = WHITE):
+	x = 60 - (int(len(text)/2))
+	drawBox(1,1,120,3,boxColor, HEAVY_BORDER_CHARSET)
+	gotoxy(x,2)
+	printColored(text, textColor)
+	
+#round border
+def printTitleBarRoundBorder(text:str, boxColor = WHITE, textColor = WHITE):
+	x = 60 - (int(len(text)/2))
+	drawBox(1,1,120,3,boxColor, ROUND_BORDER_CHARSET)
+	gotoxy(x,2)
+	printColored(text, textColor)
+
 
 #prints a progress bar on the selected line
 #the bar shows the percentage value from 0% to 100%

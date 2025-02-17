@@ -3,7 +3,7 @@ def desenhar_menu():
     os.system('cls')
        
     # Título do menu
-    printTitleBar("⚽ MENU PRINCIPAL | DEVFIT 🥊", BRIGHT_CYAN, BOLD_BRIGHT_CYAN)
+    printTitleBarHeavyBorder("⚽ MENU PRINCIPAL | DEVFIT 🥊", BRIGHT_CYAN, BOLD_BRIGHT_CYAN)
     
     # Caixa 1
     drawRoundBorderBox(1, 4, 30, 3, color=BRIGHT_YELLOW)
@@ -87,8 +87,9 @@ def desenhar_menu():
 
     drawRoundBorderBox(1, 15, 30, 3, color=RED)
     gotoxy(3, 16)
-    printRed("Digite 0 para cancelar...")
+    printRed("Digite 0 para encerrar...")
 
     # Input
-    drawRoundBorderBox(31, 15, 34, 3, color=BRIGHT_CYAN)
-    gotoxy(33, 16)
+    drawRoundBorderBox(31, 15, 90, 3, color=BRIGHT_CYAN)
+    gotoxy(35, 16)
+
