@@ -4,7 +4,7 @@ from textUtils import *
 
 # Funções de Cadastro
 def cadastrar_funcionario():
-    os.system("cls")
+    clearScreen()
     printTitleBar("Cadastro de Funcionário", BRIGHT_MAGENTA, BRIGHT_MAGENTA)
     gotoxy(1, 5)
     nome = input("Insira o nome do funcionario (digite 0 para cancelar): ")
@@ -26,8 +26,8 @@ def cadastrar_funcionario():
 
 
 def cadastrar_aluno(): 
-    os.system("cls")
-    printTitleBar("Planos", BRIGHT_MAGENTA, BRIGHT_MAGENTA)
+    clearScreen()
+    printTitleBar("Cadastro de aluno", BRIGHT_MAGENTA, BRIGHT_MAGENTA)
     gotoxy(1, 5)
     nome = input("Insira o nome: ")
     cpf = input("Insira o CPF: ")
@@ -41,16 +41,95 @@ def cadastrar_aluno():
 
     try:
         executarComando(query)
-        print("Aluno cadastrado com sucesso!")
+        clearScreen()
+        printTitleBar("Aluno cadastrado com sucesso!", GREEN, GREEN)
+        gotoxy(1, 5)
         input("pressione enter para continuar...")
     except Exception as e:
-        print("Erro ao cadastrar aluno: ", e)
+        clearScreen()
+        printTitleBar("ERRO AO CADSTRAR ALUNO!", RED, RED)
+        gotoxy(1, 5)
+        print(e)
         input("pressione enter para continuar...")
 
 
 
 def cadastrar_equipamento():
-    return
+    clearScreen()
+    printTitleBar("Equipamento", BRIGHT_MAGENTA, BRIGHT_MAGENTA)
+    gotoxy(1, 5)
+    descricao = input("Insira a descrição do equipamento: ")
+    data_compra = input("Insira a data de compra do equipamento(aaaa-mm-dd): ")
+    preco = input("Informe o preço do equipamento: ")
+    id_fornecedor = int(input("Informe o id do Fornecedor(Somente números): "))
+    ultima_manutencao = input("Insira a data da ultima manutenção(aaaa-mm-dd): ")
+    prox_manutencao = input("Insira a data da proxima manutenção(aaaa-mm-dd): ")
+    modalidade = input("Insira a modalidade do equipamento: ")
+
+    query = f"""INSERT INTO equipamento(descricao, preco, data_compra, id_fornecedor, ultima_manutencao, proxima_manutencao, modalidade) VALUES('{descricao}', '{preco}', '{data_compra}', '{id_fornecedor}', '{ultima_manutencao}', '{prox_manutencao}','{modalidade}')"""
+
+    try:
+        executarComando(query)
+        clearScreen()
+        printTitleBar("Equipamento cadastrado com sucesso!", GREEN, GREEN)
+        gotoxy(1, 5)
+        input("pressione enter para continuar...")
+    except Exception as e:
+        clearScreen()
+        printTitleBar("Erro ao cadastrar equipamento", RED, RED)
+        gotoxy(1, 5)
+        print(e)
+        input("pressione enter para continuar...")
 
 def cadastrar_fornecedor():
-    return
+    clearScreen()
+    printTitleBar("Fornecedor", BRIGHT_MAGENTA, BRIGHT_MAGENTA)
+    gotoxy(1, 5)
+    nome = input("Insira o nome do Fornecedor: ")
+    endereco = input("Insira o endereço do fornecedor: ")
+    telefone = input("Insira a data de compra do equipamento(aaaa-mm-dd): ")
+    email = input("Informe o email do fornecedor: ")
+    vigencia_contrato = input("Insira a data de vigência do contrato(aaaa-mm-dd): ")
+    
+    query = f"""INSERT INTO fornecedor(nome, endereco, telefone, email, vigencia_contrato) VALUES('{nome}', '{endereco}', '{telefone}', '{email}', '{vigencia_contrato}')"""
+
+    try:
+        executarComando(query)
+        print("Fornecedor cadastrado com sucesso!")
+        input("pressione enter para continuar...")
+    except Exception as e:
+        print("Erro ao cadastrar Fornecedor: ", e)
+        input("pressione enter para continuar...")
+
+def cadastrar_plano():
+    os.system("cls")
+    printTitleBar("Plano", BRIGHT_MAGENTA, BRIGHT_MAGENTA)
+    gotoxy(1, 5)
+    valor = input("Insira o valor do plano: ")
+    periodo = input("Insira o periodo do plano: ")
+    descricao = input("Descrição do plano")
+    query = f"""INSERT INTO plano(valor, periodo, descricao) VALUES('{valor}', '{periodo}','{descricao}')"""
+
+    try:
+        executarComando(query)
+        print("plano cadastrado com sucesso!")
+        input("pressione enter para continuar...")
+    except Exception as e:
+        print("Erro ao cadastrar plano: ", e)
+        input("pressione enter para continuar...")
+
+def cadastrar_turma():
+    os.system("cls")
+    printTitleBar("Turma", BRIGHT_MAGENTA, BRIGHT_MAGENTA)
+    gotoxy(1, 5)
+    horario = input("Insira o horario da turma: ")
+    
+    query = f"""INSERT INTO turma(horario) VALUES('{horario}')"""
+
+    try:
+        executarComando(query)
+        print("Turma cadastrado com sucesso!")
+        input("pressione enter para continuar...")
+    except Exception as e:
+        print("Erro ao cadastrar Turma: ", e)
+        input("pressione enter para continuar...")

@@ -8,6 +8,7 @@ from textUtils import *
 from menu import *
 from funcoes_de_cadastro import *
 from funcoes_de_listagem import *
+from funcoes_exclusao import *
 
 
 def main():
@@ -53,6 +54,50 @@ def main():
                 os.system("cls")
                 cadastrar_funcionario()
 
+            elif opcao == "9":
+                os.system("cls")
+                cadastrar_plano()
+                return
+            
+            elif opcao == "10":
+                os.system('cls')
+                cadastrar_equipamento()
+
+            elif opcao == "11":
+                os.system('cls')
+                cadastrar_fornecedor()
+
+            elif opcao == "12":
+                os.system('cls')
+                cadastrar_turma()
+
+           # Funções de atualização devem ser implementadas aqui!!!
+           # {...}
+
+            elif opcao == "19":
+                os.system('cls')
+                excluir_aluno()
+            
+            elif opcao == "20":
+                os.system('cls')
+                excluir_funcionario()
+
+            elif opcao == "21":
+                os.system('cls')
+                excluir_plano()
+
+            elif opcao == "22":
+                os.system('cls')
+                excluir_equipamento()   
+
+            elif opcao == "23":
+                os.system('cls')
+                excluir_fornecedor()
+
+            elif opcao == "24":
+                os.system('cls')
+                excluir_turma()         
+
             elif opcao == "0":
                 os.system("cls")
                 
@@ -64,7 +109,9 @@ def main():
                 closing()
                 time.sleep(1)
                 os.system('cls')
-                printBrightCyan("Obrigado por utilizar nosso sistema!")
+                printTitleBarHeavyBorder("Obrigado por utilizar nosso sistema!", MAGENTA, MAGENTA)
+                time.sleep(4)
+                clearScreen()
                 break
 
         except Exception as e:
