@@ -89,7 +89,7 @@ def excluir_fornecedor():
     gotoxy(1, 5)
     
     id = int(input("Insira o id do aluno que você quer excluir (digite 0 para cancelar): "))
-    query = f"""DELETE FROM fornecedor where id = {id}"""
+    query = f"""UPDATE fornecedor set fornecedor_ativo = 0 where id = {id}"""
     
     if id != 0:
    
