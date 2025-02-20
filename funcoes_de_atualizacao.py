@@ -84,18 +84,39 @@ def update_funcionario():
             print("Voltando ao menu principal...")
             input("Pressione enter para voltar ao menu...")
             return
-    nome = input("Digite o novo nome do Funcionario: ")
-    cpf = input("Digite o novo CPF do Funcionario: ")
-    nascimento = input("Digite a nova data de nascimento do Funcionario (0000-00-00): ")
-    contato = input("Digite o novo contratação do Funcionario: ")
-    salario = input("Digite o salario do Funcionario: ")
-    data_contratacao = input("Digite a data de contrato do Funcionario(0000-00-00): ")
-    cargo = input("Digite o cargo do Funcionario: ")
-    query = f"""
-    UPDATE funcionario
-    SET nome = '{nome}', cpf = '{cpf}', nascimento = '{nascimento}', contato = '{contato}', salario = '{salario}', data_contratacao = '{data_contratacao}', cargo = '{cargo}'
-    WHERE id = '{id}'
-    """
+    updates = []
+    nome = input("Digite o novo nome do Funcionário(0 para cancelar): ")
+    if nome != "":
+        updates.append(f"nome = '{nome}'")
+    cpf = input("Digite o novo CPF do Funcionário: ")
+    if cpf != "":
+        updates.append(f"cpf = '{cpf}'")
+    nascimento = input("Digite a nova data de nascimento do Funcionário (0000-00-00): ")
+    if nascimento != "":
+        updates.append(f"nascimento = '{nascimento}'")
+    endereco = input("Digite o novo endereço do Funcionário: ")
+    if endereco != "":
+        updates.append(f"endereco = '{endereco}'")
+    contato = input("Digite o novo contato do funcionário: ")
+    if contato != "":
+        updates.append(f"contato = '{contato}'")
+    cargo = input("Digite o novo cargo do funcionário: ")
+    if cargo != "":
+        updates.append(f"cargo = '{cargo}'")
+    especialidade = input("Digite a especialidade: ")
+    if especialidade != "":
+        updates.append(f"especialidade = '{especialidade}'")
+    salario = input("Digite a correção salarial: ")
+    if salario != "":
+        updates.append(f"salario = '{salario}'")
+    contratacao = input("Digite a nova data de contratacao do Funcionário (0000-00-00): ")
+    if contratacao != "":
+        updates.append(f"contratacao = '{contratacao}'")
+
+    if nome == "0" or not updates:
+         return
+    else:
+        query = f"UPDATE funcionario SET {', '.join(updates)} WHERE id = '{id}'"
     try:
         executarComando(query)
         print("Funcionario atualizado com sucesso!")
