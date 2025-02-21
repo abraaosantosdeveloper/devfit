@@ -106,7 +106,7 @@ def update_funcionario():
     especialidade = input("Digite a especialidade: ")
     if especialidade != "":
         updates.append(f"especialidade = '{especialidade}'")
-    salario = input("Digite a correção salarial: ")
+    salario = input("Digite a correção salarial (separado por ponto '.'): ")
     if salario != "":
         updates.append(f"salario = '{salario}'")
     contratacao = input("Digite a nova data de contratacao do Funcionário (0000-00-00): ")
@@ -122,6 +122,8 @@ def update_funcionario():
         print("Funcionario atualizado com sucesso!")
         input("Pressione enter para voltar ao menu...")
     except Exception as e:
+        if KeyboardInterrupt:
+            print("Operação cancelada pelo usuário...")
         print(f"Ocorreu um erro: {e}")
         input("Pressione enter para voltar ao menu...") 
         
@@ -145,21 +147,36 @@ def update_equipameto():
     gotoxy(1,5)
     id = int(input("Digite o id do Equipamento que você deseja atualizar os dados: "))
     if id == 0:
-            print("Voltando ao menu principal...")
-            input("Pressione enter para voltar ao menu...")
-            return
-    descricao = input("Digite a descrição do Equipamento: ")
-    preco = input("Digite o preço do Equipamento: ")
+        print("Voltando ao menu principal...")
+        input("Pressione enter para voltar ao menu...")
+        return
+
+    updates = []
+    descricao = input("Digite a descrição do Equipamento(ou 0 para cancelar): ")
+    if descricao != "":
+        updates.append(f"descricao = '{descricao}'")
+    preco = input("Digite o preço do Equipamento (separado por ponto '.'): ")
+    if preco != "":
+        updates.append(f"preco = '{preco}'")
     id_fornecedor = input("Digite o id do fornecedor: ")
+    if id_fornecedor != "":
+        updates.append(f"id_fornecedor = '{id_fornecedor}'")
     ultima_manutencao = input("Digite a data da ultima manutenção(0000-00-00): ")
+    if ultima_manutencao != "":
+        updates.append(f"ultima_manutencao = '{ultima_manutencao}'")
     proxima_manutencao = input("Digite data da proxima manutenção(0000-00-00): ")
+    if proxima_manutencao != "":
+        updates.append(f"proxima_manutencao = '{proxima_manutencao}'")
     modalidade = input("Digite a modalidade do equipamento: ")
+    if modalidade != "":
+        updates.append(f"modalidade = '{modalidade}'")
     data_compra = input("Digite data de compra do equipamento(0000-00-00): ")
-    query = f"""
-    UPDATE equipamento
-    SET descricao = '{descricao}', preco = '{preco}', id_fornecedor = '{id_fornecedor}', ultima_manutencao = '{ultima_manutencao}', proxima_manutencao = '{proxima_manutencao}', modalidade = '{modalidade}', data_compra = '{data_compra}'
-    WHERE id = '{id}'
-    """
+    if data_compra != "":
+        updates.append(f"data_compra = '{data_compra}'")
+    if descricao == '0' or not updates:
+        return
+    else:
+        query = f"UPDATE equipamento SET {', '.join(updates)} WHERE id='{id}'"
     
     
     try:
@@ -189,14 +206,20 @@ def update_plano():
             print("Voltando ao menu principal...")
             input("Pressione enter para voltar ao menu...")
             return
-    valor = input("Digite o valor do plano: ")
+    updates = []
+    valor = input("Digite o valor do plano(separado por ponto '.')|(0 para cancelar): ")
+    if valor != "":
+        updates.append(f"valor = '{valor}'")
     periodo = input("Digite o periodo do plano: ")
+    if periodo != "":
+        updates.append(f"periodo = '{periodo}'")
     descricao = input("Digite a descricao do plano: ")
-    query = f"""
-    UPDATE plano
-    SET valor = '{valor}', periodo = '{periodo}', descricao = '{descricao}'
-    WHERE id = '{id}'
-    """
+    if descricao != "":
+        updates.append(f"descricao = '{descricao}'")
+    if valor == "0" or not updates:
+        return
+    else:
+        query = f"UPDATE plano SET {', '.join(updates)} WHERE id = '{id}'"
     
     
     try:
@@ -230,12 +253,14 @@ def update_turma():
             print("Voltando ao menu principal...")
             input("Pressione enter para voltar ao menu...")
             return
-    horario = input("Digite o horario da turma: ")
-    query = f"""
-    UPDATE turma
-    SET horario = '{horario}'
-    WHERE id = '{id}'
-    """
+    updates = []
+    horario = input("Digite o novo horario da turma: ")
+    if horario != "":
+        updates.append(f"horario = '{horario}'")
+    if horario == "" or not updates:
+        return
+    else:
+        query = f"UPDATE turma {', '.join(updates)} WHERE id = '{id}'"
     
     
     try:
@@ -269,17 +294,26 @@ def update_fornecedor():
             print("Voltando ao menu principal...")
             input("Pressione enter para voltar ao menu...")
             return
+    updates = []
     nome = input("Digite o novo nome do Forncedor: ")
+    if nome != "":
+        updates.append(f"nome = '{nome}'")
     endereco = input("Digite o novo endereço do Fornecedor: ")
+    if endereco != "":
+        updates.append(f"endereco = '{endereco}'")
     telefone = input("Digite o novo telefone do Fornecedor: ")
+    if telefone != "":
+        updates.append(f"telefone = {telefone}")
     email = input("Digite o novo email do Fornecedor: ")
+    if email != "":
+        updates.append(f"email = '{email}'")
     vigencia_contrato = input("Digite a vigencia do contrato: ")
-    query = f"""
-    UPDATE fornecedor
-    SET nome = '{nome}', telefone = '{telefone}', endereco = '{endereco}', telefone = '{telefone}', email = '{email}', vigencia_contrato = '{vigencia_contrato}'
-    WHERE id = '{id}'
-    """
-    
+    if vigencia_contrato != "":
+        updates.append(f"vigencia_contrato = '{vigencia_contrato}'")
+    if not updates:
+        return
+    else:
+        query = f"UPDATE fornecedor {', '.join(updates)} WHERE id = '{id}'"
     
     try:
         executarComando(query)

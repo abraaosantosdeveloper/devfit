@@ -140,6 +140,10 @@ def main():
                 break
 
         except Exception as e:
+            if KeyboardInterrupt:
+                print("Operação cancelada pelo usuário...")
+                closing()
+
             print("Opção inválida! Tente novamente...", e)
             input("pressione enter para continuar...")
 
