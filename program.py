@@ -20,7 +20,14 @@ def main():
         time.sleep(0.01)
     time.sleep(1)
     # Menu loop
-    login()
+    usuario = executarConsulta("SELECT * FROM usuario")
+    if not usuario:
+        cadastrar_usuario()
+        os.system('cls')
+        printTitleBar("Realizando primeiro acesso, aguarde...")
+        time.sleep(2)
+    else:
+        login()
 
     while True:
         desenhar_menu()
@@ -121,7 +128,11 @@ def main():
 
             elif opcao == "24":
                 os.system('cls')
-                excluir_turma()         
+                excluir_turma() 
+
+            elif opcao == "nu":
+                os.system('cls')
+                cadastrar_usuario()          
 
             elif opcao == "0":
                 os.system("cls")

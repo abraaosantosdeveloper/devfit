@@ -1,4 +1,5 @@
 import os
+import time
 from mysql_general_config import *
 from textUtils import *
 
@@ -133,3 +134,39 @@ def cadastrar_turma():
     except Exception as e:
         print("Erro ao cadastrar Turma: ", e)
         input("pressione enter para continuar...")
+
+def cadastrar_usuario():
+    os.system('cls')
+    printTitleBarRoundBorder("Cadastro de usuário", BRIGHT_GREEN, GREEN)
+    drawBox(1, 4, 120, 10)
+    gotoxy(3, 5)
+    nome_usuario = input("Insira o nome de usuário(Máx. 20 caracteres) | digite 0 para encerrar: ")
+
+    if nome_usuario == "0":
+        os.system('cls')
+        printTitleBarRoundBorder("Até logo!", MAGENTA, MAGENTA)
+        time.sleep(2)
+        gotoxy(1, 5)
+        exit()
+    
+    gotoxy(3, 6)
+    senha = input("Insira sua senha(Máx. 16 caracteres): ")
+    hash_senha = hash(senha)
+
+    if nome_usuario == "" or senha == "":
+        gotoxy(3, 7)
+        printColored("Todos os campos são obrigatórios! ")
+        gotoxy(3, 8)
+        input("Pressione enter para continuar...")
+        cadastrar_usuario()
+
+    
+
+    query = f"INSERT INTO usuario(nome_usuario, senha) VALUES ('{nome_usuario}', '{hash_senha}')"
+    executarComando(query)
+    gotoxy(3, 7)
+    print("Usuário cadastrado com sucesso!")
+    gotoxy(3, 8)
+    input("Pressione enter para continuar...")
+    return
+    

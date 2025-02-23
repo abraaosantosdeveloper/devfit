@@ -90,6 +90,9 @@ def desenhar_menu():
     printRed("Digite 0 para encerrar...")
 
     # Input
-    drawRoundBorderBox(31, 15, 90, 3, color=BRIGHT_CYAN)
-    gotoxy(35, 16)
+    drawRoundBorderBox(31, 15, 30, 3, color=BRIGHT_CYAN)
+    gotoxy(33, 16)
+    print("nu - Criar novo usuário")
+    drawRoundBorderBox(1, 18, 120, 3, BRIGHT_BLUE)
+    gotoxy(3, 19)
 
