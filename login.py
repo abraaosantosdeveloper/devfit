@@ -1,11 +1,15 @@
 import os
 import time
+import hashlib
 
 #Funções externas
 
 from textUtils import *
 from mysql_general_config import *
 from menu import *
+
+def hash_password(senha):
+    return hashlib.sha256(senha.encode()).hexdigest()
 
 def login():
     os.system('cls')
@@ -37,9 +41,10 @@ def login():
         login()
 
     gotoxy(3, 6)
+    
     senha = input("Insira sua senha(máx 16 caracteres): ")
-    senha_cadastrada = resultado[0][2]
-    if senha != hash(senha_cadastrada):
+
+    if hash_password(senha) != resultado[0][2]:
         gotoxy(3, 8)
         printRed("Senha incorreta...")
         gotoxy(3, 9)

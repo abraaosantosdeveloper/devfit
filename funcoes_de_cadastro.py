@@ -2,6 +2,7 @@ import os
 import time
 from mysql_general_config import *
 from textUtils import *
+from login import hash_password
 
 # Funções de Cadastro
 def cadastrar_funcionario():
@@ -151,7 +152,7 @@ def cadastrar_usuario():
     
     gotoxy(3, 6)
     senha = input("Insira sua senha(Máx. 16 caracteres): ")
-    hash_senha = hash(senha)
+    hash_senha = hash_password(senha)
 
     if nome_usuario == "" or senha == "":
         gotoxy(3, 7)
