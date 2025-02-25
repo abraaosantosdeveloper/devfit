@@ -307,7 +307,7 @@ def update_fornecedor():
     if vigencia_contrato != "": updates.append(f"vigencia_contrato = '{vigencia_contrato}'")
 
     if not updates: return
-    else: query = f"UPDATE fornecedor {', '.join(updates)} WHERE id = '{id}'"
+    else: query = f"UPDATE fornecedor SET {', '.join(updates)} WHERE id = '{id}'"
     
     try:
         executarComando(query)

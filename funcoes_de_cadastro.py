@@ -99,7 +99,7 @@ def cadastrar_fornecedor():
     email = input("Informe o email do fornecedor: ")
     vigencia_contrato = input("Insira a data de vigência do contrato(aaaa-mm-dd): ")
     
-    query = f"""INSERT INTO fornecedor(nome, endereco, telefone, email, vigencia_contrato) VALUES('{nome}', '{endereco}', '{telefone}', '{email}', '{vigencia_contrato}')"""
+    query = f"""INSERT INTO fornecedor(nome, endereco, telefone, email, vigencia_contrato, fornecedor_ativo) VALUES('{nome}', '{endereco}', '{telefone}', '{email}', '{vigencia_contrato}', 1)"""
 
     try:
         executarComando(query)
