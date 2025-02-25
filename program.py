@@ -136,7 +136,6 @@ def main():
 
             elif opcao == "0":
                 os.system("cls")
-                
                 def closing():
                     for n in range(101):
                         printProgressBar(n, 1, RED, RED, WHITE, BACKGROUND_WHITE)
@@ -149,6 +148,11 @@ def main():
                 time.sleep(4)
                 gotoxy(1, 6)
                 break
+            else:
+                gotoxy(10, 19)
+                input("Opção inválida! Pressione enter para tentar novamente...")
+                
+
 
         except Exception as e:
             if KeyboardInterrupt:

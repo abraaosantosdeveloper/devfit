@@ -257,7 +257,7 @@ def update_turma():
     if horario != "": updates.append(f"horario = '{horario}'")
 
     if horario == "" or not updates: return
-    else: query = f"UPDATE turma {', '.join(updates)} WHERE id = '{id}'"
+    else: query = f"UPDATE turma SET {', '.join(updates)} WHERE id = '{id}'"
     
     try:
         executarComando(query)
