@@ -20,7 +20,7 @@ def update_aluno():
     printTitleBarHeavyBorder("Atualizar registro de aluno", YELLOW, YELLOW)
     gotoxy(1,5)
     id = int(input("Digite o id do Aluno que você deseja atualizar os dados: "))
-    if id == 0:
+    if id == 0 or id == "":
         print("Voltando ao menu principal...")
         input("Pressione enter para voltar ao menu...")
         return
@@ -77,7 +77,7 @@ def update_funcionario():
     printTitleBarHeavyBorder("Atualizar registro de funcionário", YELLOW, YELLOW)
     gotoxy(1,5)
     id = int(input("Digite o id do Funcionario que você deseja atualizar os dados: "))
-    if id == 0:
+    if id == 0 or id == "":
             print("Voltando ao menu principal...")
             input("Pressione enter para voltar ao menu...")
             return
@@ -141,7 +141,7 @@ def update_equipameto():
     printTitleBarHeavyBorder("Atualizar registro de equipamento", YELLOW, YELLOW)
     gotoxy(1,5)
     id = int(input("Digite o id do Equipamento que você deseja atualizar os dados: "))
-    if id == 0:
+    if id == 0  or id == "":
         print("Voltando ao menu principal...")
         input("Pressione enter para voltar ao menu...")
         return
@@ -197,7 +197,7 @@ def update_plano():
     printTitleBarHeavyBorder("Atualizar registro de planos", YELLOW, YELLOW)
     gotoxy(1,5)
     id = int(input("Digite o id do plano que você deseja atualizar os dados: "))
-    if id == 0:
+    if id == 0 or id == "":
             print("Voltando ao menu principal...")
             input("Pressione enter para voltar ao menu...")
             return
@@ -246,7 +246,7 @@ def update_turma():
     printTitleBarHeavyBorder("Atualizar registro de turma", YELLOW, YELLOW)
     gotoxy(1,5)
     id = int(input("Digite o id da turma que você deseja atualizar os dados: "))
-    if id == 0:
+    if id == 0 or id == "":
             print("Voltando ao menu principal...")
             input("Pressione enter para voltar ao menu...")
             return
@@ -286,7 +286,7 @@ def update_fornecedor():
     printTitleBarHeavyBorder("Atualizar registro de Fornecedor", YELLOW, YELLOW)
     gotoxy(1,5)
     id = int(input("Digite o id do Fornecedor que você deseja atualizar os dados: "))
-    if id == 0:
+    if id == 0 or id == "":
             print("Voltando ao menu principal...")
             input("Pressione enter para voltar ao menu...")
             return
