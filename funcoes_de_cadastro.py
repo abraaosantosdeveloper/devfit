@@ -109,7 +109,7 @@ def cadastrar_plano():
     gotoxy(1, 5)
     valor = input("Insira o valor do plano: ")
     periodo = input("Insira o periodo do plano: ")
-    descricao = input("Descrição do plano")
+    descricao = input("Descrição do plano: ")
     query = f"""INSERT INTO plano(valor, periodo, descricao) VALUES('{valor}', '{periodo}','{descricao}')"""
 
     try:
@@ -119,6 +119,7 @@ def cadastrar_plano():
     except Exception as e:
         print("Erro ao cadastrar plano: ", e)
         input("pressione enter para continuar...")
+        return
 
 def cadastrar_turma():
     os.system("cls")
