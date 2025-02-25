@@ -49,7 +49,7 @@ def cadastrar_aluno():
         input("pressione enter para continuar...")
     except Exception as e:
         clearScreen()
-        printTitleBar("ERRO AO CADSTRAR ALUNO!", RED, RED)
+        printTitleBar("ERRO AO CADASTRAR ALUNO!", RED, RED)
         gotoxy(1, 5)
         print(e)
         input("pressione enter para continuar...")
