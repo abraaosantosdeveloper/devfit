@@ -22,9 +22,11 @@ def cadastrar_funcionario():
         executarComando(comando)
         print("Funcionário cadastrado com sucesso!!")
         input("Pressione enter para continuar...")
+        return
     except Exception as err:
         print("Erro ao cadastrar funcionário. ", err)
         input("Pressione enter para continuar...")
+        return
 
 
 def cadastrar_aluno(): 
@@ -47,12 +49,14 @@ def cadastrar_aluno():
         printTitleBar("Aluno cadastrado com sucesso!", GREEN, GREEN)
         gotoxy(1, 5)
         input("pressione enter para continuar...")
+        return
     except Exception as e:
         clearScreen()
         printTitleBar("ERRO AO CADASTRAR ALUNO!", RED, RED)
         gotoxy(1, 5)
         print(e)
         input("pressione enter para continuar...")
+        return
 
 
 
@@ -76,12 +80,14 @@ def cadastrar_equipamento():
         printTitleBar("Equipamento cadastrado com sucesso!", GREEN, GREEN)
         gotoxy(1, 5)
         input("pressione enter para continuar...")
+        return
     except Exception as e:
         clearScreen()
         printTitleBar("Erro ao cadastrar equipamento", RED, RED)
         gotoxy(1, 5)
         print(e)
         input("pressione enter para continuar...")
+        return
 
 def cadastrar_fornecedor():
     clearScreen()
@@ -99,9 +105,11 @@ def cadastrar_fornecedor():
         executarComando(query)
         print("Fornecedor cadastrado com sucesso!")
         input("pressione enter para continuar...")
+        return
     except Exception as e:
         print("Erro ao cadastrar Fornecedor: ", e)
         input("pressione enter para continuar...")
+        return
 
 def cadastrar_plano():
     os.system("cls")
@@ -116,6 +124,7 @@ def cadastrar_plano():
         executarComando(query)
         print("plano cadastrado com sucesso!")
         input("pressione enter para continuar...")
+        return
     except Exception as e:
         print("Erro ao cadastrar plano: ", e)
         input("pressione enter para continuar...")
@@ -133,9 +142,11 @@ def cadastrar_turma():
         executarComando(query)
         print("Turma cadastrado com sucesso!")
         input("pressione enter para continuar...")
+        return
     except Exception as e:
         print("Erro ao cadastrar Turma: ", e)
         input("pressione enter para continuar...")
+        return
 
 def cadastrar_usuario():
     os.system('cls')
