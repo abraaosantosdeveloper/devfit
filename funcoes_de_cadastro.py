@@ -95,7 +95,7 @@ def cadastrar_fornecedor():
     gotoxy(1, 5)
     nome = input("Insira o nome do Fornecedor: ")
     endereco = input("Insira o endereço do fornecedor: ")
-    telefone = input("Insira a data de compra do equipamento(aaaa-mm-dd): ")
+    telefone = input("Insira o telefone do fornecedor: ")
     email = input("Informe o email do fornecedor: ")
     vigencia_contrato = input("Insira a data de vigência do contrato(aaaa-mm-dd): ")
     
